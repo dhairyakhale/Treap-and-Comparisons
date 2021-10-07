@@ -57,7 +57,6 @@ class BST
 			if(!node)
 			{
 				head->RChild = temp;
-				delete temp;
 				return;
 			}
 			while(node)
@@ -72,6 +71,7 @@ class BST
 					node = node->RChild;
 				else
 				{
+					delete temp;
 					cout<<"Node already exists."<<endl;
 					return;
 				}
@@ -263,9 +263,11 @@ void BST_main()
 
 	fileout<<"BST No. of operations,BST Height,BST Avg height,BST Rotation count,BST Key comparison count\n";
 
+	BST *t;
+
 	for(int i=500;i<=10000;i+=500)
 	{
-		BST *t = new BST();
+		t = new BST();
 
 		srand(time(0));
 

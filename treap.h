@@ -89,6 +89,7 @@ class Treap
 				}
 				else
 				{
+					delete t;
 					cout<<"Element already exists."<<endl;
 					return;
 				}
@@ -104,8 +105,6 @@ class Treap
 			while(parstk.top() != head && parstk.top()->priority > t->priority)
 			{
 				par = parstk.top();
-
-				cout<<parstk.top()->key<<endl;
 
 				parstk.pop();
 
@@ -377,9 +376,11 @@ void Treap_main()
 
 	fileout<<"Treap No. of operations,Treap Height,Treap Avg height,Treap Rotation count,Treap Key comparison count\n";
 
+	Treap *t;
+
 	for(int i=500;i<=10000;i+=500)
 	{
-		Treap *t = new Treap();
+		t = new Treap();
 
 		srand(time(0));
 
