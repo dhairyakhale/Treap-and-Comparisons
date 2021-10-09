@@ -47,6 +47,7 @@ class BST
 			key_comparison = 0;
 		}
 
+		//Inserting into a BST
 		void BST_Insert(int k)
 		{
 			BST_Node *node = head->RChild;
@@ -54,22 +55,27 @@ class BST
 
 			BST_Node *temp = new BST_Node(k);
 
+			//If tree empty, make new node as root
 			if(!node)
 			{
 				head->RChild = temp;
 				return;
 			}
+
+			//Traverse into tree
 			while(node)
 			{
 				key_comparison++;
 
 				par = node;
 
-				if(k < node->key)
+				if(k < node->key)			//Go to left subtree
 					node = node->LChild;
-				else if(k > node->key)
+
+				else if(k > node->key)		//Go to right subtree
 					node = node->RChild;
-				else
+
+				else						//Node already exists
 				{
 					delete temp;
 					cout<<"Node already exists."<<endl;
@@ -78,9 +84,11 @@ class BST
 			}
 
 			key_comparison++;
-			if(k<par->key)
+
+			if(k<par->key)				//Enter as left child (as a leaf)
 				par->LChild = temp;
-			else
+
+			else						//Enter as right child (as a leaf)
 				par->RChild = temp;
 		}
 
@@ -200,6 +208,8 @@ class BST
 				}
 			}
 		}
+
+		//Comments for below same as file treap.h
 
 		int height(BST_Node *root)
 		{

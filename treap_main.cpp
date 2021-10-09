@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 #include <time.h>
 
-#include "treap.h"
+#include "treap.h"		//File included for treap functions
 
 using namespace std;
+
+//Self explanatory user interface for treap functions
 
 int main()
 {
